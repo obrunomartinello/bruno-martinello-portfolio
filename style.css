@@ -49,7 +49,46 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
     object-position: top !important;
     aspect-ratio: 4/5;
 }
-@media (max-width: 768px) { .section-padding { padding: 80px 5%; } }
+.zoom-center {
+    object-fit: cover !important;
+    object-position: center 30% !important;
+}
+@media (max-width: 768px) { 
+    .section-padding { padding: 80px 5%; } 
+    
+    /* Mobile Navigation */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 5%;
+        width: 90%;
+        background: rgba(10, 10, 12, 0.98);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        flex-direction: column;
+        padding: 30px;
+        text-align: center;
+        gap: 25px;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .nav-links.active { display: flex; }
+    .hamburger { display: flex; }
+    .header-action { display: none; } /* Hide search icon to balance header */
+
+    /* WhatsApp CTA Button */
+    .wpp-btn { font-size: 0.9rem !important; padding: 15px 25px !important; }
+    .wpp-btn svg { width: 20px; height: 20px; margin-right: 5px; }
+
+    /* Work Categories - Make smaller to fit inside standard cards */
+    .work-category {
+    font-size: 0.6rem;
+    padding: 6px 12px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+}
 
 /* ==========================================================================
    GLASSMORPHISM UTILITIES (Liquid Glass)
@@ -100,9 +139,19 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
 }
 
 .logo { font-weight: 900; font-size: 1.2rem; letter-spacing: 2px; }
-.nav { display: flex; gap: 30px; }
-.nav a { font-size: 0.8rem; font-weight: 600; letter-spacing: 1px; color: var(--text-secondary); }
-.nav a:hover { color: var(--text-primary); text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+/* Header Nav */
+.nav { display: flex; align-items: center; }
+.nav-links { display: flex; gap: 40px; }
+.nav-link { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; position: relative; }
+.nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0%; height: 1px; background: var(--text-primary); transition: var(--transition-smooth); }
+.nav-link:hover::after { width: 100%; }
+
+/* Hamburger Menu Mobile */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 10px; }
+.hamburger span { width: 25px; height: 2px; background: var(--text-primary); transition: 0.3s; border-radius: 2px; }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ==========================================================================
    B. HERO
@@ -145,10 +194,20 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
     font-size: clamp(3rem, 15vw, 20vw);
     letter-spacing: -0.05em;
     margin: 0;
-    line-height: 0.8;
-    background: linear-gradient(180deg, #FFFFFF 0%, #888888 100%);
+    line-height: 0.85;
+    background: linear-gradient(to bottom, #FFFFFF 20%, rgba(255,255,255,0.4) 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 900;
+}
+.hero-subtitle { 
+    font-size: clamp(0.6rem, 2.8vw, 1.5rem); /* Ensures single line fit on mobile */
+    letter-spacing: 0.15em; 
+    text-transform: uppercase; 
+    margin-bottom: 20px; 
+    color: var(--text-secondary); 
+    white-space: nowrap;
 }
 
 .hero-footer {
