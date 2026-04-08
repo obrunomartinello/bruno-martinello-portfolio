@@ -449,9 +449,10 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
 
     /* Hero Subtitle */
     .hero-subtitle {
-        font-size: clamp(0.45rem, 2.3vw, 0.9rem) !important;
-        letter-spacing: 0.08em !important;
+        font-size: clamp(0.4rem, 2vw, 0.8rem) !important;
+        letter-spacing: 0.05em !important;
         white-space: nowrap !important;
+        padding: 5px 10px !important;
     }
 
     /* WhatsApp CTA Button */
