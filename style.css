@@ -420,6 +420,12 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
 
 /* Mobile View Overrides */
 @media (max-width: 768px) { 
+    /* Force prevent horizontal scroll overflow */
+    html, body { overflow-x: hidden; width: 100%; position: relative; }
+
+    /* Header Logo */
+    .logo { font-size: 0.95rem; letter-spacing: 1px; }
+
     /* Mobile Navigation */
     .nav-links {
         display: none;
@@ -441,6 +447,13 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
     .hamburger { display: flex; }
     .header-action { display: none !important; } 
 
+    /* Hero Subtitle */
+    .hero-subtitle {
+        font-size: clamp(0.45rem, 2.3vw, 0.9rem) !important;
+        letter-spacing: 0.08em !important;
+        white-space: nowrap !important;
+    }
+
     /* WhatsApp CTA Button */
     .wpp-btn { font-size: 0.9rem !important; padding: 15px 25px !important; }
     .wpp-btn svg { width: 20px; height: 20px; margin-right: 5px; }
@@ -451,4 +464,12 @@ a { color: var(--text-primary); text-decoration: none; transition: var(--transit
         padding: 6px 12px;
         white-space: nowrap;
     }
+
+    /* Footer Stacking */
+    .footer-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    .footer-col { align-items: center; }
 }
