@@ -18,7 +18,7 @@
             <div class="nav-links">
                 <a href="#hero" class="nav-link">INÍCIO</a>
                 <a href="#services" class="nav-link">METODOLOGIA</a>
-                <a href="#works" class="nav-link">CASES</a>
+                <a href="#testimonials" class="nav-link">DEPOIMENTOS</a>
                 <a href="#contact" class="nav-link">CONTATO</a>
             </div>
             <div class="hamburger">
@@ -57,11 +57,14 @@
                         <h2 class="service-name">PRESENÇA LOCAL</h2>
                         <p class="service-desc">Todo dia tem gente procurando o que você vende no Google. A pergunta é: eles estão te achando ou indo para o concorrente?</p>
                     </div>
-                    <div class="service-img-container glass-panel">
-                        <!-- AQUI VOCÊ COLOCA O VÍDEO DA OFICINA -->
-                        <video autoplay loop muted playsinline class="media-element zoom-center" style="border-radius: 12px;">
-                            <source src="Imagens/oficina.MP4" type="video/mp4">
-                        </video>
+                    <div class="service-img-container glass-panel expandable collapsed" id="expand-oficina">
+                        <div class="expandable-inner">
+                            <img src="Imagens/oficina.png" alt="Site Oficina Mecânica" class="media-element expand-img-top">
+                        </div>
+                        <button class="expand-btn glass-pill" onclick="toggleExpand('expand-oficina')">
+                            <span class="expand-text">VER MAIS</span>
+                            <svg class="expand-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
                     </div>
                 </div>
 
@@ -83,99 +86,80 @@
                         <p class="service-desc">Você pode ter o melhor produto da cidade. Se o cliente não encontra seu número, não entende o que você faz ou não confia no que vê, ele vai embora. Resolvo isso antes de qualquer real investido em anúncio.</p>
                     </div>
                     <div class="service-img-container glass-panel">
-                        <img src="Imagens/confeitaria.png" alt="Estrutura de Conversão" class="media-element zoom-top">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- D. Portfolio Grid (Works) -->
-        <section id="works" class="works section-padding fade-in-up">
-            <div class="works-grid">
-                <!-- Case 1: Oficina Mecânica -->
-                <div class="work-card large">
-                    <div class="img-wrapper glass-panel shadow-premium">
-                        <!-- VÍDEO DA OFICINA AQUI TAMBÉM -->
-                        <video autoplay loop muted playsinline class="media-element full-media zoom-center">
-                            <source src="Imagens/oficina.MP4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="work-info">
-                        <div>
-                            <h3 class="work-title">OFICINA MECÂNICA</h3>
-                            <p class="work-result">Resultado: 400+ buscas orgânicas/mês com GMN e Site.</p>
-                        </div>
-                        <span class="work-category glass-pill">PRESENÇA DIGITAL</span>
+                        <img src="Imagens/confeitaria.png" alt="Estrutura de Conversão" class="media-element">
                     </div>
                 </div>
 
-                <!-- Case 2: Confeitaria -->
-                <div class="work-card column-down">
-                    <div class="img-wrapper glass-panel shadow-premium">
-                        <img src="Imagens/confeitaria.png" alt="Confeitaria Artesanal" class="media-element full-media zoom-top">
+                <div class="service-item">
+                    <div class="service-content">
+                        <span class="service-num">04</span>
+                        <h2 class="service-name">GOOGLE MEU NEGÓCIO</h2>
+                        <p class="service-desc">As pessoas estão pesquisando o seu serviço agora mesmo no Google. Se não encontram telefone, endereço ou avaliações, vão embora — direto pro concorrente. Seu Google Meu Negócio é a vitrine que nunca fecha.</p>
                     </div>
-                    <div class="work-info">
-                        <div>
-                            <h3 class="work-title">CONFEITARIA ARTESANAL</h3>
-                            <p class="work-result">Posicionamento magnético focado em conversão.</p>
-                        </div>
-                        <span class="work-category glass-pill">ESTRUTURA VISUAL</span>
-                    </div>
-                </div>
-                
-                <!-- Case 3: Instituto/Comunidade -->
-                <div class="work-card">
-                    <div class="img-wrapper glass-panel shadow-premium">
-                        <!-- VÍDEO DA COMUNIDADE AQUI -->
-                        <video autoplay loop muted playsinline class="media-element full-media">
-                            <source src="Imagens/comunidade.MP4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="work-info">
-                        <div>
-                            <h3 class="work-title">COMUNIDADE DE ALUNAS</h3>
-                            <p class="work-result">Página de vendas focada em alta retenção (LTV).</p>
-                        </div>
-                        <span class="work-category glass-pill">COPY & LP</span>
+                    <div class="service-img-container glass-panel">
+                        <img src="Imagens/gmn.png" alt="Google Meu Negócio" class="media-element">
                     </div>
                 </div>
 
-                <!-- Case 4: Otimização de Tráfego -->
-                <div class="work-card column-down">
-                    <div class="img-wrapper glass-panel shadow-premium">
-                        <img src="Imagens/metricas.png" alt="Otimização" class="media-element full-media">
+                <div class="service-item">
+                    <div class="service-content">
+                        <span class="service-num">05</span>
+                        <h2 class="service-name">INFOPRODUTOS & CURSOS</h2>
+                        <p class="service-desc">Página de vendas, comunidade de alunas, funil de captação. Estruturas completas para quem vende conhecimento e precisa converter atenção em receita recorrente.</p>
                     </div>
-                    <div class="work-info">
-                        <div>
-                            <h3 class="work-title">ESCALA DE VÍDEO</h3>
-                            <p class="work-result">Taxa de engajamento em 36% e crescimento exponencial.</p>
+                    <div class="service-img-container glass-panel expandable collapsed" id="expand-comunidade">
+                        <div class="expandable-inner">
+                            <img src="Imagens/site instituto.png" alt="Site Instituto - Comunidade de Alunas" class="media-element expand-img-top">
                         </div>
-                        <span class="work-category glass-pill">ANALYTICS & TRÁFEGO</span>
+                        <button class="expand-btn glass-pill" onclick="toggleExpand('expand-comunidade')">
+                            <span class="expand-text">VER MAIS</span>
+                            <svg class="expand-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- E. Testimonials -->
-        <section class="testimonials section-padding fade-in-up" style="position: relative; overflow: hidden;">
+        <section id="testimonials" class="testimonials section-padding fade-in-up" style="position: relative; overflow: hidden;">
             <div class="parallax-bg" style="background-image: url('Imagens/firepit.jpg'); opacity: 0.35; z-index: -2;"></div>
             <div class="hero-overlay" style="z-index: -1;"></div>
             <div class="quote-icon glass-text">“</div>
             <div class="testimonial-slider">
-                <div class="slide active">
-                    <p class="testimonial-text glass-text-effect">"JÁ TINHA PAGO PARA OUTRA PESSOA ANTES, MAS NUNCA VI RESULTADO. COM BRUNO, EM POUCOS MESES JÁ TÍNHAMOS RESULTADO ORGÂNICO, CLIENTES ME ENCONTRANDO SEM EU PRECISAR INVESTIR."</p>
-                    <div class="author">
-                        <div class="author-info">
-                            <p style="font-weight: 800; letter-spacing: 1px;">DONO DA OFICINA MECÂNICA</p>
-                            <p style="font-size: 0.8rem; color: var(--text-secondary);">Cliente de Presença Local</p>
+                <div class="slides-track">
+                    <div class="slide">
+                        <p class="testimonial-text">"JÁ TINHA PAGO PARA OUTRA PESSOA ANTES, MAS NUNCA VI RESULTADO. COM BRUNO, EM POUCOS MESES JÁ TÍNHAMOS RESULTADO ORGÂNICO, CLIENTES ME ENCONTRANDO SEM EU PRECISAR INVESTIR."</p>
+                        <div class="author">
+                            <div class="author-info">
+                                <p style="font-weight: 800; letter-spacing: 1px;">DONO DA OFICINA MECÂNICA</p>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Cliente de Presença Local</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <p class="testimonial-text">"O BRUNO FEZ UM SITE 100% PERSONALIZADO PRA MIM. RESPONSIVO, BONITO E QUE REFLETE EXATAMENTE O QUE EU VENDO. DESDE QUE COLOQUEI NO AR, MINHAS VENDAS AUMENTARAM MUITO. ELE TEVE UMA FLEXIBILIDADE INCRÍVEL PRA ADAPTAR TUDO AO MEU NEGÓCIO."</p>
+                        <div class="author">
+                            <div class="author-info">
+                                <p style="font-weight: 800; letter-spacing: 1px;">MENTORA & INFOPRODUTORA</p>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Cliente de Estrutura Digital & Comunidade</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <p class="testimonial-text">"O BRUNO CONSEGUIU MOSTRAR QUE MEU TRABALHO NÃO É SÓ UM BOLO — É UM SENTIMENTO, É O ATENDIMENTO QUE EU TENHO. ELE REFLETIU ISSO NO POSICIONAMENTO DO MEU INSTAGRAM E NO SITE. HOJE CONSIGO COBRAR MAIS CARO E ATRAIR CLIENTES QUE VALORIZAM O QUE EU FAÇO."</p>
+                        <div class="author">
+                            <div class="author-info">
+                                <p style="font-weight: 800; letter-spacing: 1px;">CONFEITEIRA ARTESANAL</p>
+                                <p style="font-size: 0.8rem; color: var(--text-secondary);">Cliente de Posicionamento & Estrutura Visual</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="slider-nav">
-                <span class="bullet active glass-bullet"></span>
-                <span class="bullet glass-bullet"></span>
-                <span class="bullet glass-bullet"></span>
+                <span class="bullet active glass-bullet" data-slide="0"></span>
+                <span class="bullet glass-bullet" data-slide="1"></span>
+                <span class="bullet glass-bullet" data-slide="2"></span>
             </div>
         </section>
 
@@ -259,8 +243,8 @@
             </div>
             <div class="footer-col">
                 <h4 class="footer-title">PROJETOS</h4>
-                <a href="#works">Cases de Sucesso</a>
-                <a href="#services">Consultoria</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#services">Metodologia</a>
             </div>
             <div class="footer-col">
                 <h4 class="footer-title">CONTATO RÁPIDO</h4>

@@ -36,11 +36,93 @@ document.addEventListener('DOMContentLoaded', () => {
 
     revealOnScroll();
     window.addEventListener('scroll', revealOnScroll);
-    
-    // We removed the manual javascript hover follow for service items since it is now
-    // replaced with a much cleaner two-column glass layout via purely CSS.
+
+    // =========================================================================
+    // TESTIMONIAL HORIZONTAL SLIDER
+    // =========================================================================
+    const slidesTrack = document.querySelector('.slides-track');
+    const bullets = document.querySelectorAll('.glass-bullet');
+    let currentSlide = 0;
+    let autoSlideInterval;
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    function goToSlide(index) {
+        if (index >= totalSlides) index = 0;
+        if (index < 0) index = totalSlides - 1;
+        currentSlide = index;
+        
+        // Slide horizontally
+        if (slidesTrack) {
+            slidesTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        // Update bullets
+        bullets.forEach(b => b.classList.remove('active'));
+        if (bullets[currentSlide]) {
+            bullets[currentSlide].classList.add('active');
+        }
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 6000);
+    }
+
+    // Bullet click navigation
+    bullets.forEach((bullet, index) => {
+        bullet.addEventListener('click', () => {
+            clearInterval(autoSlideInterval);
+            goToSlide(index);
+            startAutoSlide();
+        });
+    });
+
+    // Start auto-slide
+    if (totalSlides > 1) {
+        startAutoSlide();
+    }
 
 });
+
+// =========================================================================
+// EXPAND / COLLAPSE IMAGE CONTAINERS
+// =========================================================================
+function toggleExpand(id) {
+    const container = document.getElementById(id);
+    if (!container) return;
+    
+    const isCollapsed = container.classList.contains('collapsed');
+    const btn = container.querySelector('.expand-text');
+    
+    if (isCollapsed) {
+        // Get the full height of the inner content
+        const inner = container.querySelector('.expandable-inner');
+        const img = inner.querySelector('img');
+        
+        // Wait a frame for the image to adjust
+        container.classList.remove('collapsed');
+        
+        requestAnimationFrame(() => {
+            const fullHeight = inner.scrollHeight + 60;
+            container.style.maxHeight = fullHeight + 'px';
+        });
+        
+        if (btn) btn.textContent = 'VER MENOS';
+    } else {
+        container.style.maxHeight = '350px';
+        container.classList.add('collapsed');
+        if (btn) btn.textContent = 'VER MAIS';
+        
+        // Scroll back to the container if it's out of view
+        setTimeout(() => {
+            const rect = container.getBoundingClientRect();
+            if (rect.top < 0) {
+                container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }, 300);
+    }
+}
 
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
